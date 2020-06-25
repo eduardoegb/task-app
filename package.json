@@ -7,7 +7,12 @@
     "start": "node src/index.js",
     "start:dev": "env-cmd -f ./config/dev.env nodemon src/index.js",
     "mongodb:dev": "mongod --dbpath /home/eduardoegb/mongodb",
-    "dev": "npm run start:dev & npm run mongodb:dev"
+    "dev": "npm run start:dev & npm run mongodb:dev",
+    "test": "env-cmd -f ./config/test.env jest --runInBand",
+    "test:coverage": "env-cmd -f ./config/test.env jest --runInBand --collectCoverage"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "keywords": [],
   "author": "",
@@ -24,7 +29,10 @@
     "validator": "^13.1.1"
   },
   "devDependencies": {
+    "@types/jest": "^26.0.3",
     "env-cmd": "^10.1.0",
-    "nodemon": "^2.0.4"
+    "jest": "^26.1.0",
+    "nodemon": "^2.0.4",
+    "supertest": "^4.0.2"
   }
 }
